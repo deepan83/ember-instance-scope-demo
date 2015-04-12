@@ -1,8 +1,37 @@
 
 # Demo-app
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+A mixin that allows definition of instance specific properties within extend (which adds to the prototype by default)
+
+Useful for properties that wouldnt be passed to the component instances in the template directly but may still need to be instance specific. 
+
+This can be done currently by setting these properties up in the init method but this provides a more declarative approach.
+
+export default Ember.Component.extend(instanceScope,{
+	title: "Mr",
+	instanceScope: {
+	  firstName: "Deepan",
+	  lastName: "Aiyasamy",
+	  testArray: [1,2,3],
+	  testObj: {
+	  	prop1: "hello",
+	  	testObjArray: ["a","b","c"]
+	  }
+	},
+	fullName: function(){
+		return this.get("firstName") + " " + this.get("lastName")
+	}.property("firstName", "lastName"),
+	actions: {
+		addToArray: function(){
+			this.get('testArray').pushObject(1);
+			this.get('testObj.testObjArray').pushObject("c");
+			console.log(this.get('testArray'));
+			console.log(this.get('testObj.testObjArray'));
+		}
+	}
+});
+
+Quick demo at http://development.instance-scope-demo.divshot.io/
 
 ## Prerequisites
 
