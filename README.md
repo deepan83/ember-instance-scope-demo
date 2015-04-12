@@ -31,7 +31,7 @@ export default Ember.Component.extend(instanceScope,{
 		}
 	}
 });
-<pre>
+</pre>
 
 Quick demo at http://development.instance-scope-demo.divshot.io/
 
