@@ -1,7 +1,7 @@
 
 # ember-instance-scope
 
-A mixin that allows definition of instance specific properties within extend (which adds to the prototype by default)
+A mixin that allows definition of instance specific properties within extend (which adds to the prototype by default) through a custom instanceScope property
 
 Useful for properties that wouldnt be passed to the component instances in the template directly but may still need to be instance specific. 
 
@@ -9,8 +9,8 @@ This can be done currently by setting these properties up in the init method but
 
 <pre>
 export default Ember.Component.extend(instanceScope,{
-	title: "Mr",
-	instanceScope: {
+	title: "Mr", // Added to prototype
+	instanceScope: { //Properties in this are made instance specific by the mixin
 	  firstName: "Deepan",
 	  lastName: "Aiyasamy",
 	  testArray: [1,2,3],
