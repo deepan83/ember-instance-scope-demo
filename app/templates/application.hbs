@@ -1,0 +1,37 @@
+<h2 id="title">Welcome to Ember.js</h2>
+
+<h3>Component definition</h3>
+
+<pre>
+import Ember from 'ember';
+import instanceScope from '../mixins/local-scope';
+
+export default Ember.Component.extend(instanceScope,{
+	title: "Mr",
+	instanceScope: {
+	  firstName: "Deepan",
+	  lastName: "Aiyasamy",
+	  testArray: [1,2,3],
+	  testObj: {
+	  	testObjArray: ["a","b","c"]
+	  }
+	},
+	fullName: function(){
+		return this.get("firstName") + " " + this.get("lastName")
+	}.property("firstName", "lastName"),
+	actions: {
+		addToArray: function(){
+			this.get('testArray').pushObject(1);
+			this.get('testObj.testObjArray').pushObject("c");
+			console.log(this.get('testArray'));
+			console.log(this.get('testObj.testObjArray'));
+		}
+	}
+});
+
+</pre>
+
+<h3>Component instance 1</h3>
+{{test-component location="London"}}
+<h3>Component instance 2</h3>
+{{test-component location="Chennai"}}
