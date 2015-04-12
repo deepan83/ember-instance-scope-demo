@@ -1,5 +1,5 @@
 
-# Demo-app
+# ember-instance-scope
 
 A mixin that allows definition of instance specific properties within extend (which adds to the prototype by default)
 
@@ -7,6 +7,7 @@ Useful for properties that wouldnt be passed to the component instances in the t
 
 This can be done currently by setting these properties up in the init method but this provides a more declarative approach.
 
+<pre>
 export default Ember.Component.extend(instanceScope,{
 	title: "Mr",
 	instanceScope: {
@@ -30,6 +31,7 @@ export default Ember.Component.extend(instanceScope,{
 		}
 	}
 });
+<pre>
 
 Quick demo at http://development.instance-scope-demo.divshot.io/
 
