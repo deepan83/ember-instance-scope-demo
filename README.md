@@ -21,15 +21,7 @@ export default Ember.Component.extend(instanceScope,{
 	},
 	fullName: function(){
 		return this.get("firstName") + " " + this.get("lastName")
-	}.property("firstName", "lastName"),
-	actions: {
-		addToArray: function(){
-			this.get('testArray').pushObject(1);
-			this.get('testObj.testObjArray').pushObject("c");
-			console.log(this.get('testArray'));
-			console.log(this.get('testObj.testObjArray'));
-		}
-	}
+	}.property("firstName", "lastName")
 });
 </pre>
 
